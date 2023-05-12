@@ -46,9 +46,17 @@ public:
             } else if(button == SDLK_w){
                 fPlayerX += std::sinf(fPlayerA) * 5.0f * secPerFrame;
                 fPlayerY += std::cosf(fPlayerA) * 5.0f * secPerFrame;
+                if(map[(int)fPlayerY * nMapWidth + (int)fPlayerX] == '#'){
+                    fPlayerX -= std::sinf(fPlayerA) * 5.0f * secPerFrame;
+                    fPlayerY -= std::cosf(fPlayerA) * 5.0f * secPerFrame;
+                }
             } else if(button == SDLK_s){
                 fPlayerX -= std::sinf(fPlayerA) * 5.0f * secPerFrame;
                 fPlayerY -= std::cosf(fPlayerA) * 5.0f * secPerFrame;
+                if(map[(int)fPlayerY * nMapWidth + (int)fPlayerX] == '#'){
+                    fPlayerX += std::sinf(fPlayerA) * 5.0f * secPerFrame;
+                    fPlayerY += std::cosf(fPlayerA) * 5.0f * secPerFrame;
+                }
             }
         }
     }
